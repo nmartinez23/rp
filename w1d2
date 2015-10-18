@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conditional Statements</title>
+</head>
+<body>
+
+    <script>
+    // 1. Write an if statement that always runs its code block
+    if (true) {
+      console.log('I never fail to run!');
+    }
+    // 2. Write an if statement that never runs its code block
+    if (0) {
+      console.log("The number 0 is a falsy value! W0ah! You'll never see this though...");
+    }
+    // 3. Write a statement that logs a message of encouragement if a visitor,
+    // when prompted, responds that they are sad.
+    var feeling = prompt('Hey, how ya feeling?');
+    if (feeling === 'sad') {
+      alert("Don't worry, be happy! ^_^");
+    }
+    // 4. Write a statement that alerts a warning if a visitor, when prompted,
+    // does not guess that the secret number is 3.
+    var guess = prompt('Quick, how many horns does a triceratops have?!');
+    // Why do I need to compare to the string '3', instead of just the number 3?
+    // Answer: The return value of the prompt function is always a string. So even
+    // though we're asking for a number, we're actually getting a string.
+    if (guess !== '3') {
+        alert('No, not ' + guess +'! Get outta heeeere');
+    }
+    // 5. Prompt the visitor to enter a password when they visit your site. If it is correct, welcome them.
+    // Otherwise, direct them elsewhere using this line of code:
+    var password = prompt('PASSWORD:');
+    if (password === 'steve urkel') {
+        alert('We have a weird password. Anyways, come on in.');
+    } else {
+        alert('And awaaaaay you go!');
+        window.location = "http://www.google.com";
+    }
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pseudocode</title>
+</head>
+<body>
+    <div id="greeting">
+    </div>
+
+    <script>
+    var name = 'Bob';
+    var age = 35;
+    var gender = 'male';
+    var is_member = true;
+    var thirsty = true;
+    var drink_of_choice;
+    var message;
+    // Pseudocode first!
+    // =================
+    // If they are not a member or if they are under the age of 21,
+        // If male, address as sir
+        // If female, address as ma'am
+        // Apologetically deny access to the club
+    // Otherwise,
+        // If male, greet as Mr.
+        // If female, greet as Mrs.
+        // Greet them by name and welcome them
+        // If they are thirsty, prompt as to what drink they would like
+            // If they ask for a "Coors Light", kick them out
+            // Otherwise, say "Yes (name), one (drink_name) coming right up!"
+    // If they are not a member or if they are under the age of 21,
+    if (!is_member || age < 21) {
+        if (gender === 'male') {
+            // If male, address as sir
+            message = 'My deepest apologies sir, but this is a members-only club';
+        } else {
+            // If female, address as ma'am
+            message = "My deepest apologies ma'am, but this is a members-only club";
+        }
+        // Apologetically deny access to the club
+        document.querySelector('#greeting').textContent = message;
+    } else {
+        if (gender === 'male') {
+            // If male, greet as Mr.
+            message = 'Greetings Mr. ' + name + ', welcome!';
+        } else {
+            // If female, greet as Mrs.
+            message = 'Greetings Mrs. ' + name + ', welcome!';
+        }
+        // Greet them by name and welcome them
+        document.querySelector('#greeting').textContent = message;
+        // If they are thirsty, prompt as to what drink they would like
+        if (thirsty) {
+            drink_of_choice = prompt('What would you like to drink?');
+            
+            // If they ask for a "Coors Light", kick them out
+            if (drink_of_choice === 'Coors Light') {
+                alert('Be gone, foul creature!');
+            } else {
+                // Otherwise, say "Yes (name), one (drink_name) coming right up!"
+                alert('Yes ' + name + ', one ' + drink_of_choice + ' coming right up!');
+            }
+        }
+    }
+    </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adventure</title>
+</head>
+<body>
+    <p id="story">
+    </p>
+
+    <script>
+    var door = prompt("Hmm...should I choose the left door, or the right door?");
+    var storyElement = document.querySelector('#story');
+    if (door === 'left') {
+        var method = prompt('Opening the door on the left, you find a treasure chest! Hmmm, but no key. Smash it open, or pick the lock?');
+        if (method === 'smash') {
+            storyElement.textContent = 'Wow, sometimes brute force works! You get all the money!';
+        } else if (method === 'pick') {
+            storyElement.textContent = 'The pick snaps inside the lock. Rats!';
+        } else {
+            storyElement.textContent = 'You try some other thing, holding out for the best...and you are disappointed.';
+        }
+    } else if (door === 'right') {
+        storyElement.textContent = 'The door opens but it leads off a cliff. How the heck did that happen? This game is weird!';
+    } else {
+        storyElement.textContent = 'Unable to decide, you walk into the wall between the doors and fall down.';
+    }
+    </script>
+</body>
+</html>
