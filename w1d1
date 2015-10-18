@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p id="story">
+      The 
+      <span id="noun1"></span>
+      <span id="verb1"></span>
+      the
+      <span id="noun2"></span>.
+      <span id="question"></span>?
+      The
+      <span id="noun3"></span>
+      replied, '
+      <span id="verb2"></span>
+      to the
+      <span id="noun4"></span>
+      <span id="question"></span>
+    </p>    
+    <script>
+    var noun1 = prompt("A noun");
+    var noun2 = prompt("A noun");
+    var noun3 = prompt("A noun");
+    var verb1 = prompt("A verb");
+    var verb2 = prompt('A verb');
+    var question = prompt('A Question');
+    document.querySelector('#noun1').textContent = noun1;
+    document.querySelector('#noun2').textContent = noun2;
+    document.querySelector('#noun3').textContent = noun2;
+    document.querySelector('#noun4').textContent = noun3;
+    document.querySelector('#verb1').textContent = verb1;
+    document.querySelector('#verb2').textContent = verb2;
+    document.querySelector('#question').textContent = question;
+    </script>
+  </body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeter</title>
+</head>
+<body>
+    <div id="greeting">
+    </div>
+
+    <p>
+        It's a pleasure having a visitor from: <span id="hometown"></span> !
+    </p>
+
+    <script>
+        var visitor_name = prompt("Enter your name:");
+        var welcome_message = "Welcome, " + visitor_name + "!";
+        
+        document.querySelector("#greeting").textContent = welcome_message;
+        var town = prompt("What is your hometown?");
+        document.querySelector("#hometown").textContent = town;
+    </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First JavaScript Enabled Web Page</title>
+</head>
+<body>
+    <p>Exercise: My First JavaScript Enabled Web Page</p>
+    <p>==============================================</p>
+    
+    <ol>
+      <li>Create a new HTML document, correctly set up with html, head, and body tags</li>
+      <li>Add a script tag directly before the closing body tag.</li>
+      <li>Inside of a script tag, alert visitors that your site is extremely awesome and should thus be enjoyed with caution.</li>
+      <li>Prompt the user for their name</li>
+      <li>Greet them by name using another alert</li>
+    <ol>
+
+    <p>In steps 4 and 5, the word alert came before the word prompt.</p>
+    <p>Why did the prompt happen first? (I highly recommend you not move past this point until you can answer this
+    question for yourself. Ask for help if you need to. It's okay!)</p>
+
+    <script>
+        // Displays this message in an alert window to the user.
+        alert("Alert! This site is extremely awesome. Enjoy with caution!");
+        // We are working from the inside of the parentheses outwards.
+        // First, the prompt function asks the user for their name.
+        // The user's input is then substituted, or "plugged in", where the
+        // prompt function originally was.
+        // Finally, the welcome message is concatenated together from three strings:
+        // 1. "Greetings, "
+        // 2. A string that contains the user's input from the prompt
+        // 3. "!"
+        alert("Greetings, " + prompt("What is your name?") + "!");
+    </script>
+</body>
+</html>
+
+
+
+
+var a = 3;
+var b = 4;
+var c = 8;
+var d = a  + b + c;
+a = b
+b = 10;
+b = 7;
+b = "hello";
+
+/*Create variables "hour" and "minute" to reflect the current time.
+Write an expression to calculate how many seconds until midnight.
+Change "minute" to be accurate again as time has probably passed.
+Run the same calculation again (press the up key in the console to scroll back to it).*/
+
+var hour = 7;
+var minute = 39;
+(12 - hour - 1)*60*60 +  (60 - minute)*60
+minute = 48;
+(12 - hour - 1)*60*60 +  (60 - minute)*60
+
+
+var name = "Nick";
+var age = 36;
+var birthday = "April";
+var hometown = "Las Cruces";
+var occupation = "marketing";
+var favoriteFood = "pizza";
+var bestFriend = "Prakash";
+var dog = "Kayla";
+var city = "Pittsburg";
+var school = "Hack Reactor";
+
+console.log("Hello, I'm" + name + ". Last week I turned" + age  )
