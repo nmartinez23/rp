@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arguments</title>
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+    <script>
+        // 1. Create a function log_and_return that console.logs all of its inputs and then returns them from the function invocation.
+        function log_and_return () {
+            console.log(arguments);
+            return arguments;
+        }
+        // 2. Store the return value as a variable returned_values
+        var returned_values = log_and_return(1, true, "three");
+        // 3. Pass that variable as an argument to a second invocation of log_and_return
+        log_and_return(returned_values);
+    </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Constructing Sentences</title>
+    <style>
+    .noun {
+        color: blue;
+    }
+    .adjective {
+        color: orange;
+    }
+    .adverb {
+        color: green;
+    }
+    .verb {
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div id="output">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+    <script>
+    // 1. Write a function called string_printer, that takes a string as an
+    // argument and uses $('#output').text() to place it into a specific <div>
+    // on the web page. Call it multiple times with different strings from the console.
+    function string_printer (message) {
+        $('#output').text(message);
+    }
+    // 2. Does string_printer use a side effect or a return value?
+    // It uses a side effect. This function does not return a value; rather,
+    // it takes in an input (the string) and sets the text on a div on the page.
+    // The div is clearly not something contained within the function. It is
+    // "outside" the function. This is a hint that it's a side effect.
+    // 3. Write a function called funny_sentence that takes a noun, an
+    // adjective, a verb, and an adverb as inputs, and constructs a string of
+    // html text and uses $('#output').append() to place it on the page.
+    function funny_sentence (noun, adjective, verb, adverb) {
+        // var sentence = '<p>The ' + adjective + ' ' + noun + ' ' + adverb + ' ' + verb + '.</p>';
+        // $('#output').append(sentence);
+        // 4. Put each word argument you pass in into spans that have css rules
+        // that styles them differently to make them stand out.
+        // Uncomment the code below, and comment out the code above when ready to
+        // move to Step 4.
+        var spanNoun, spanAdj, spanAdv, spanVerb;
+        spanNoun = '<span class="noun">' + noun + '</span>';
+        spanAdj = '<span class="adjective">' + adjective + '</span>';
+        spanAdv = '<span class="adverb">' + adverb + '</span>';
+        spanVerb = '<span class="verb">' + verb + '</span>';
+        var sentence = '<p>The ' + spanAdj + ' ' + spanNoun + ' ' + spanAdv + ' ' + spanVerb + '.</p>';
+        $('#output').append(sentence);
+    }
+    // 5. Invoke funny_sentence 5 times from within a <script> tag
+    // and see the result on the page.
+    funny_sentence('dog', 'shaggy', 'confidently', 'dances'); // Five of these, basically.
+    // 6. Extra Credit: Create a version of funny_sentence that takes
+    // no inputs, but rather constructs a funny sentence on its own from randomly chosen words
+    </script>
+</body>
+</html>
+
+
+
+
+// 1. Write a function called factorial_of_n that takes a number and
+// returns the factoral i.e. factorial_of_n(5) should return 120 (5x4x3x2x1).
+var factorial_of_n = function (number) {
+  var total = 1; 
+
+  while (number > 0) {
+    total *= number;
+    number--;
+  }
+
+  return total;
+};
+
+console.log(factorial_of_n(5)); // 120
+
+// 2. Write a function called count_by_n that has parameters
+// count_by and count_up_to, and console.log's the numbers up
+// to count_up_to by intervals of count_by.
+var count_by_n = function (count_by, count_up_to) {
+  var count = 1;
+
+  while (count <= count_up_to) {
+    console.log(count);
+    count += count_by;
+  }
+};
+
+console.log(count_by_n(2, 50));
+
+
+
+
+
+
+// By definition, the first two numbers in the Fibonacci sequence
+// are 0 and 1, and each subsequent number is the sum of the previous two.
+// For example, the first ten Fibonacci numbers are:
+
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+
+// Write a function that accepts a number and returns the number
+// at that position in the fibonnaci sequence.
+
+function fibonacci (index) {
+  if (index === 1) {
+    return 0; // The first number of the fibonacci sequence is 0.
+
+  } else if (index === 2) {
+    return 1; // The second number of the fibonacci sequence is 1.
+
+  } else {
+    // We can start at index 3, since if the user chose 1 or 2 then the previous
+    // if-statements would have triggered and returned the appropriate value.
+    var count = 3;
+    var previousNumber = 0;
+    var currentNumber = 1;
+    var temp; // We'll need a temp variable to swap previousNumber and currentNumber
+
+    while (count <= index) {
+      // To understand what's happening below, I would highly, highly advise
+      // doing a few iterations of this while loop by hand / on paper.
+      temp = currentNumber;
+      currentNumber = currentNumber + previousNumber; // The definition of the fibonacci sequence
+      previousNumber = temp;
+
+      count++;
+    }
+
+    return currentNumber;
+  }
+}
+
+// Some test cases to make sure our function is working as expected:
+console.log(fibonacci(1)); // 0
+console.log(fibonacci(2)); // 1
+console.log(fibonacci(7)); // 8
+console.log(fibonacci(10)); // 34
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fizz Buzz #2</title>
+</head>
+<body>
+    <div id="output">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+    <script>
+    // 1. Write a function this_that that takes in two strings and reimplements fizzBuzz
+    // using those two words instead of 'fizz' and 'buzz' (prints the numbers from 1 to
+    // 100. But for multiples of three print word1 instead of the number and for the
+    // multiples of five print word2. For numbers which are multiples of both
+    // three and five print word1word2.)
+    // function this_that (word1, word2) {
+    //     var count = 1;
+    //     // 2. In the first iteration, have this_that return a long string of
+    //     // the counting seperated by commas
+    //     var result = ''; // Set up a "builder string" so we can build up the final result step-by-step
+    //     while (count <= 100) {
+    //         if (count % 5 === 0 && count % 3 === 0) {
+    //             result += word1 + word2 + ',';
+    //         } else if (count % 3 === 0) {
+    //             result += word1 + ',';
+    //         } else if (count % 5 === 0) {
+    //             result += word2 + ',';
+    //         } else {
+    //             result += count + ',';
+    //         }
+    //         count++;
+    //     }
+    //     return result;
+    // }
+    // 3. Now refactor such that this_that uses $('#output').append() each
+    // time to add new divs to the page
+    function this_that (word1, word2, count_up_to, fizz_num, buzz_num) {
+        var count = 1;
+        // Here's a very helpful use of the logical 'or' operator!
+        // We can set default values for arguments to our functions like so:
+        count_up_to = count_up_to || 100;
+        fizz_num = fizz_num || 3;
+        buzz_num = buzz_num || 5;
+        // That says, literally, "count_up_to should equal count_up_to or 100"
+        // Here's why this works: If the user does not supply a third argument,
+        // then count_up_to will be undefined. Undefined is the default value
+        // for any arguments that the user does not set. It is also, coincidentally, a falsy value.
+        // So, if we do NOT pass in a value for count_up_to, then we essentially have:
+        // count_up_to = undefined || 100,
+        // and since undefined is falsy, we can also view this line of code as:
+        // count_up_to = false || 100;
+        // All numbers except 0 are truthy, so rewriting things once more:
+        // count_up_to = false || true;
+        // When we use the || operator in a variable assignment expression (on the "right hand side"
+        // of the = operator, in other words), it will assign the first truthy value in the expression
+        // to the variable. Thus, since the first truthy value we encounter is 100, then count_up_to
+        // will be 100. However, if we did supply a value like 50 to count_up_to instead of leaving
+        // it undefined, then that will be assigned instead.
+        // 4. Allow the user to input a count_up_to argument
+        while (count <= count_up_to) {
+            // 5. Allow the user to input fizz_num and buzz_num arguments to set the
+            // word substitutions to multiples of something other than 3 and 5
+            if (count % fizz_num === 0 && count % buzz_num === 0) {
+                $('#output').append( '<p>' + word1 + word2 + '</p>' );
+            } else if (count % fizz_num === 0) {
+                $('#output').append( '<p>' + word1 + '</p>' );
+            } else if (count % buzz_num === 0) {
+                $('#output').append( '<p>' + word2 + '</p>' );
+            } else {
+                $('#output').append( '<p>' + count + '</p>' );
+            }
+            count++;
+        }
+    }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Sentences</title>
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+    <script>
+        // 1. In a script tag, define a new function called get_sentence
+        function get_sentence () {
+            // 2. get_sentence should select a sentence randomly between two or more options and return it
+            // Generate a random integer (either 0, 1, or 2)
+            var selection = Math.floor(Math.random() * 3);
+            var sentence;
+            if (selection === 0) {
+                sentence = "What's in a name? That which we call a rose by any other name would smell as sweet.";
+            } else if (selection === 1) {
+                sentence = "Procrastination is the art of keeping up with yesterday.";
+            } else if (selection === 2) {
+                sentence = "I like bacon.";
+            }
+            return sentence;
+        }
+        // 3. Save the return value to a variable called new_sentence
+        var new_sentence = get_sentence();
+        // 4. Use jQuery to add the sentence inside a new <p> tag to the end of the HTML document
+        // .append() defaults to adding a <p> tag if you don't specify, so we can just append new_sentence directly.
+        $('body').append(new_sentence);
+        // 5. Refactor your code so that it doesn't need the new_sentence variable
+        // Remember that we can call a function and use its return value without storing it in a variable.
+        $('body').append( get_sentence() );
+        // 6. Use a while loop to run get_sentence ten times in a row so we can make sure the sentence really is random.
+        var count = 1;
+        while (count <= 10) {
+            $('body').append( get_sentence() );
+            count++; // Don't trap yourself in an infinite loop! Always consider how the while-loop expression will terminate.
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+// 1. Write a function called tripler that takes a number and returns
+// triple the value.
+
+function tripler (number) {
+  return number * 3;
+}
+
+// 2. Create a function multiply that takes two numbers as inputs and
+// returns their product
+function multiply (num1, num2) {
+  return num1 * num2;
+}
+
+// 3. Create a function called divide that takes two numbers as inputs 
+// and returns the result of dividing the first by the second
+function divide (num1, num2) {
+  return num1 / num2;
+}
+
+// 4. Create a function called remainder that takes two numbers as inputs and
+// returns the result of modulo the first by the second
+function remainder (num1, num2) {
+  return num1 % num2;
+}
+
+// 5. Using only the functions you wrote above, and no operators, calculate
+// the value of tripling 5, multiplying that by 12, dividing by 2 and then
+// finding the remainder of dividing that by 3.
+
+// Start from the "inside out" when combining functions together.
+// First let's triple 5: tripler(5)
+// Then we need to multiply the result of tripler(5) by 12: multiply(tripler(5), 12)
+// Next, divide the last result by 2: divide(multiply(tripler(5), 12), 2)
+// Finally, we can modulo divide by 3 for the final result:
+var result = remainder( divide( multiply( tripler(5), 12 ), 2 ), 3 );
+console.log(result); // Let's see what we get!
+
+// 6. Write 4 more lines of code that use all of your math functions
+// in a single expression
+// I'll leave this one for practice. The process is essentially the same as Step 5.
