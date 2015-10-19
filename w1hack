@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+  <head>
+    <title>Remote Prep 9 Test Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  </head>
+  <body>
+    <div class="row">
+      <div id="title" >
+        <div class="logo col-md-3">
+          <img src="http://placekitten.com/150/150">
+        </div>
+        <div class="title text-center col-md-9">
+          <h1>Cats R' Us</h1>
+          <p>Add a Friend to Your Fur-Family</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <div id="breeds">
+        <h3>View Cat Profiles by Breed</h3>
+        <nav>
+          <ul>
+            <li><a href="#bengal-selector">Bengal</a></li>
+            <li><a href="#savannah-selector">Savannah Cats</a></li>
+            <li><a href="#siamese-selector">Siamese</a></li>
+          </ul>
+        </nav>
+        </div>
+        <div>
+          <h3>How to Choose a Cat</h3>
+          <p>There are many considerations when picking the right cat for you. 
+            Knowing the answers to the questions below should help you decide.</p>
+          <h4>Kitten or Adult?</h4>
+          <p>Kittens have tons of energy and demand tons of attention. They come house-trained, so no need to worry about that.
+            However, you will have to keep your kitten busy. Kittens may need extra toys to keep them busy.</p>
+          <h4>Short or Long Hair?</h4>
+          <p>Short haired cats need little to no grooming as they keep themselves clearn. 
+            Long haired cats will need daily or weekly brushing depending on the coat.
+          They may also leave more hairballs around the house as presents for you!</p>
+          <h4>Personality</h4>
+          <p>Bengals are quirky and wild. They also tend to be more independent.
+          Savannah cats need to go outside on a leash as they're as big as a labrador!
+          Siamese can be big talkers. Make sure you know your breed's characteristics before you choose.</p>
+          <h4>Allergies</h4>
+          <p>Spend some time with a cat to make sure you and your family are not allergic before you buy.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-2"> <!-- Linda's column -->
+        <div id="grumpy" class="row">
+          <div class="col-md-6">
+            <img src="https://pbs.twimg.com/profile_images/616542814319415296/McCTpH_E.jpg" style="width:100px;height:100px;" class="pull-right">
+          </div>
+          <div class="col-md-6">
+            <h4>Name:</h4>
+            <p id="name">Happy Cat</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-2">
+        <div id="rando" class="row">
+          <div class="col-md-6">
+            <img src="http://lorempixel.com/100/100/cats/1" style="width:100px;height:100px;" class="pull-right">
+          </div>
+          <div class="col-md-6">
+            <h4>Name:</h4>
+            <p>Rando Cat</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+         <br><br>
+         <form action="formkitty-response" method="POST">
+           <b>Please fill out the form below if you are interested in adopting a cat!</b><br><br>
+
+          First Name <input type="text" name="firstname"><br><br>
+          Last Name <input type="text" name="lastname"><br><br>
+
+          Your e-mail <input type="email" name="userEmail" placeholder="hello@ilikecats.com"><br><br>
+
+        What kind of cat are you interested in?
+          <input type="radio" name="weird" value="code-blue" checked><span>Siamese</span>
+          <input type="radio" name="weird" value="code-red" checked><span>Persian</span>
+          <input type="radio" name="weird" value="code-blue" checked>Bengal<span></span>
+          <input type="radio" name="weird" value="code-red" checked><span>Other</span><br><br>
+
+         Questions or comments <textarea name="user_message" rows="8" cols="40"></textarea><br><br>
+          <input type="submit">
+        </form>
+      </div>  
+        
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <p>Copyright 2015</p>
+        <p>Terms & Conditions</p>
+      </div>
+      <div class="col-md-5">
+        <p>Address:  San Francisco, CA</p>
+        <p>Phone:  555-555-5555</p>
+        <p>Email:  email@example.com</p>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    
+    
+    
+    
+    
+   
+    
+    
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+<!--Linda's layout-->
