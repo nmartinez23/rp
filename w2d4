@@ -1,0 +1,281 @@
+var complex_object = {
+  string: "I'm a string!",
+  number: 42,
+  array: ["all sorts of stuff", 10, true, undefined, {me: "an object", more: "find me in here!"}, function(){console.log('beepity-beep')}],
+  simple_object: {name: 'bob', location: 'basement'},
+  fn: function(){
+    console.log("fn has been invoked! Checking both kinds of invocation-time inputs...")
+    console.log("what is my calling context?", this)
+    console.log("what are my arguments?", arguments)
+  }
+};
+
+$('#primitive_data_types').append(complex_object['string']);
+$('#primitive_data_types').append(complex_object['number']);
+
+for(var i = 0; i < complex_object['array'].length; i++) {
+  var string;
+  if(complex_object['array'][i] === undefined) {
+    string = 'undefined';
+  } else {
+    string = complex_object['array'][i].toString();
+  }
+  // if(complex_object['array'][i] === 'function') {
+
+  // }
+  $('#array_values').append(string);
+};
+
+$('#bob').append(complex_object['simple_object'].name);
+$('#bob').append(complex_object['simple_object'].location);
+complex_object['array'][5]();
+complex_object['fn']('first', 'second');
+
+
+
+<html>
+<head>
+  <title>Dog Book</title>
+  <style>
+   .dog-container {
+    margin: 0 auto;
+    width: 60%;
+   }
+   .dog-container img {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+   }
+   .dog-container h2 {
+    text-align: center;
+   }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center">Dog Book</h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+  <script src="them_dogs.js"></script>
+</body>
+</html>
+
+
+
+
+<html>
+<head>
+  <title>For In Loop</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+  <h1 id="color" style="text-align: center"></h1>
+  <h1 id="direction" style="text-align: center"></h1>
+  <h1 id="greeting" style="text-align: center"></h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+  <script>
+    var my_cat = {
+      name: "Goosie", 
+      age: 2, 
+      alive: true,
+      favorite_food: "Fish",
+      toys: ["Catnip Ball", "Scratching Post"],
+      color: "Black"
+    }
+    var my_dream_life = {};
+    var property_key = "job";
+    my_dream_life[property_key];
+    var another_property_key = "salary";
+    my_dream_life[another_property_key] = 80,000;
+    var next_property = "car";
+    my_dream_life[next_property] = "Ferrari";
+    var dream_car = {};
+    dream_car.make = "Dodge";
+    dream_car.model = "Intrepid";
+    dream_car.color = "Silver";
+    dream_car.year = 2000;
+    dream_car.registered = false;
+    var obj = {
+      greeting: 'howdy',
+      direction: 'down',
+      color: 'red',
+      'spaces-and-dashes can be used': ' but need to have quotes'
+    }
+    for(var cat_prop in my_cat) {
+      console.log(my_cat[cat_prop]);
+    }
+    for(var life_prop in my_dream_life) {
+      console.log(my_dream_life[life_prop])
+    }
+    for(var car_prop in dream_car) {
+      console.log(dream_car[car_prop]);
+    }
+    var target_key = 'greeting';
+    for(var key in obj) {
+      if(key === 'color') {
+        $('#color').append(obj[key]);
+      }
+      if(obj[key] === 'down') {
+        $('#direction').append(obj[key]);
+      }
+      if(key === target_key) {
+        $('#greeting').append(obj[key]);
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+<html>
+<head>
+  <title>HTML Document</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+  <div id="primitive_data_types"></div>
+  <div id="array_values"></div>
+  <div id="bob"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+  <script>
+    var numbers = [2, 4, 5, 37, 0]
+    var doubled_numbers = {} // should be { 2: 4, 4: 8, 5: 10, 37: 74, 0: 0 }
+    for(var i = 0; i < numbers.length; i++) {
+      doubled_numbers[numbers[i]] = numbers[i] * 2;
+    }
+    console.log(doubled_numbers);
+    var favorites = [];
+    var famous = ['alex smith', 'amy whinehouse', 'cameron diaz', 'brad pitt',
+    'ashton kutcher', 'mark whalberg', 'morgan freeman', 'mila kunis'];
+    for(var i = 0; i < famous.length; i++) {
+      if(famous[i][0] === 'a') {
+        favorites.push(famous[i]);
+      }
+    }
+    console.log(favorites);
+    var obama_jobs = []
+    var politicos = {
+        secretary_of_state: 'hillary clinton',
+        potus: 'barack obama',
+        flotus: 'michelle obama',
+        vice_prez: 'joe biden',
+        gov_of_california: 'jerry brown'
+    }
+    for(var title in politicos) {
+      if(!!politicos[title].match('obama')){
+        obama_jobs.push(politicos[title]);
+      }
+    }
+    console.log(obama_jobs);
+    var b_named_politicos = {};
+    for(var title in politicos) {
+      var names = politicos[title].split(' ');
+      if(names[0][0] ===
+        'b' || names[1][0] === 'b') {
+        b_named_politicos[title] = politicos[title];
+      }
+    }
+    console.log(b_named_politicos);
+    var reverse_politico_lookup = {};
+    for(var title in politicos) {
+      reverse_politico_lookup[politicos[title]] = title;
+    }
+    console.log(reverse_politico_lookup);
+    
+  </script>
+</body>
+</html>
+
+
+
+
+var them_dogs = [{
+    name: 'Henry',
+    age: 0.5,
+    breed: 'Aussie',
+    food: 'kibble',
+    toys: ['tennis ball', 'chew toy'],
+    picture: 'http://rubyriverminiaustralianshepherds.com/wp-content/uploads/aussie-puppy-for-sale-940x412.jpg'
+}, {
+    name: 'Tilly',
+    age: 5,
+    breed: 'Mutt',
+    food: 'kibble',
+    toys: ['bone', 'kong', 'squeaky toy'],
+    picture: 'http://www.dogchannel.com/images/zones/top_promo/excited-mixed-breed.jpg'
+}, {
+    name: 'Apollo',
+    age: 10,
+    breed: 'Labrador',
+    food: 'absolutely anything',
+    toys: ['old sock', 'other old sock', 'more old socks'],
+    picture: 'http://media.cmgdigital.com/shared/img/photos/2014/08/01/5a/66/LadyLabrador.jpg'
+}];
+
+for(var i = 0; i < them_dogs.length; i++) {
+    console.log(them_dogs[i].name);
+}
+var all_toys = [];
+for(var i = 0; i < them_dogs.length; i++) {
+  all_toys = all_toys.concat(them_dogs[i].toys);
+}
+console.log(all_toys);
+
+var toyChecker = function(dogs, toy) {
+    for(var i = 0; i < dogs.length; i++) {
+        for(var j = 0; j < dogs[i].toys.length; j++) {
+            if(dogs[i].toys[j] === toy) {
+                return dogs[i].name;
+            }
+        }
+    }
+};
+console.log(toyChecker(them_dogs, 'old sock'));
+
+them_dogs.forEach(function(dog) {
+    var container = $('<div class="dog-container"></div>');
+    container.append('<img src="' + dog.picture + '"/>');
+    container.append('<h2>' + dog.name + '</h2>');
+    $('body').append(container);
+})
+
+
+
+
+var type_tester = function(input) {
+  if(Array.isArray(input)) {
+    return "Array";
+  } else {
+    return typeof input;
+  }
+}
+
+
+
+
+<html>
+<head>
+  <title>HTML Document</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+  <div id="primitive_data_types"></div>
+  <div id="array_values"></div>
+  <div id="bob"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+  <script src="type_tester.js"></script>
+  <script src="complex_object.js"></script>
+  <script>
+    console.log(type_tester(3));
+    console.log(type_tester('hello'));
+    console.log(type_tester({}));
+    console.log(type_tester([]));
+    
+  </script>
+</body>
+</html>
