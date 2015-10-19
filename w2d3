@@ -392,3 +392,101 @@ function fibonacci100() {
   return fibArr;
 }
 
+
+
+<!-- Exercise: Magnetic Poetry
+Have a grid of words in span.word tags for the user to select from.
+Allow users to click on the spans to add that word to a sentence array.
+When the user clicks on a "make sentence" button use words.join(' ') to create a string and show it.
+Create a "show magic word" button. If the user has used a particular magic word in their sentence highlight it for them. Otherwise, tell them that they have not used the magic word.
+Have an array of magic words, color the magic words differently.
+Allow users to create multiple sentences. Store all of the sentences in an array.
+Have "magic word" work on all sentences at once.
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+  <title>Magnetic Poetry</title>
+</head>
+<body>
+  <div id="container">
+    <table>
+      <tr>
+        <td><span class="word">the</span></td>
+        <td><span class="word">it</span></td>
+        <td><span class="word">she</span></td>
+        <td><span class="word">he</span></td>
+      </tr>
+      <tr>
+        <td><span class="word">hack reactor</span></td>
+        <td><span class="word">computer</span></td>
+        <td><span class="word">array</span></td>
+        <td><span class="word">code</span></td>
+      </tr>
+      <tr>
+        <td><span class="word">debugs</span></td>
+        <td><span class="word">iterates</span></td>
+        <td><span class="word">compiles</span></td>
+        <td><span class="word">refactors</span></td>
+      </tr>
+      <tr>
+        <td><span class="word">elegantly</span></td>
+        <td><span class="word">spaghetti</span></td>
+        <td><span class="word">functional</span></td>
+        <td><span class="word">javascript</span></td>
+      </tr>
+      <tr>
+        <td><span class="word">.</span></td>
+        <td><span class="word">!</span></td>
+        <td><span class="word">,</span></td>
+        <td><span class="word">?</span></td>
+      </tr>
+    </table>
+    <br />
+    <button id="make">Make Sentence</button>
+    <button id="magic">Show Magic Word</button>
+  </div>
+
+<script>
+var magicWords = ["javascript", "hack reactor"];
+var sentence = [];
+var allSentences = [];
+$(".word").click(function(event){
+  var word = this.textContent;
+  magicWords.forEach(function(val) {
+    if (val === word) {
+      word = '<span class="magic">' + word + '</span>'
+    }
+  });
+  sentence.push(word);
+});
+$("#make").click(function() {
+  $("#container").append("<p>" + sentence.join(" ") + "</p>");
+  allSentences.push(sentence);
+  sentence = [];
+  $(".warning").hide();
+});
+$("#magic").click(function(){
+  var magicExists = false;
+  allSentences.forEach(function(sent){
+    sent.forEach(function(word){
+      magicWords.forEach(function(magicWord){
+        if (word === magicWord){
+          magicExists = true;
+        }
+      });
+    });
+  });
+  if (magicExists) {
+    $(".magic").css("background-color", "blue");
+  } else {
+    $("#container").append('<span class="warning">"You have not used the magic word!"</span>');
+  }
+});
+</script>
+
+</body>
+</html>
