@@ -1,0 +1,237 @@
+http://reactorprep.herokuapp.com/#09.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Document</title>
+</head>
+<body>
+  <div id="everything">
+        <h1>A heading!</h1>
+        <p>Here's some text!</p>
+        <p>Here's a second set of text!</p>
+        <div class="holder">
+            <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+            </ul>
+        </div>
+        <div class="holder">
+            <ol>
+                <li>List Item 4</li>
+                <li>List Item 5</li>
+                <li>List Item 6</li>
+            </ol>
+        </div>
+        <div id="change-me">This part needs to change!</div>
+        <div id="secret">We should hide this!</div>
+    </div>
+
+
+    <!-- 1. Include the jQuery library in the file -->
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script>
+      var a = 4;
+      console.log(a);
+      // 2. Write an expression using jQuery that targets all h1 elements and makes their font-color blue
+      $('h1').css('color', 'blue');
+      // 3. ... that targets the body element and turns its background red
+      $('body').css('background-color', 'red');
+      // 4. ... that targets the element with the id "everything" and increases its font-size
+      $('#everything').css('font-size', '200%');
+      // 5. ... that targets all elements with the class "holder" and adds a black border
+      $('.holder').css('border', '1px solid black');
+      // 6. ... that targets all li elements within ul elements and bold them
+      $('ul li').css('font-weight', 'bold');
+      // 7. ... that targets p elements coming immediately after an h1 element and makes it green
+      $('h1 + p').css('color', 'green');
+      // 8. ... that targets the element with the id of "secret" and changes its display property to 'none'
+      $('#secret').css('display', 'none');
+      // 9. ... now change #secret's display property back to block
+      $('#secret').css('display', 'block');
+      // 10. ... that targets the element with the id of "change-me" and changes its text to a new sentence
+      $('#change-me').text("jQuery is pretty neat-o!");
+      // 11. ... that appends new text to the end of the sentence in #change-me
+      var existingText = $('#change-me').text(); // If you don't pass any arguments, you get back the text already there.
+      $('#change-me').text(existingText + " Oh wow, a new sentence!");
+      // 12. ... that replaces #change-me's contents with two new paragraph tags with content included
+      // First, let's build out the paragraphs in a string variable:
+      var paragraphs = '<p>The first paragraph</p><p>And yet another paragraph</p>';
+      // Then, we use the .html method to clear out whatever #change-me currently contains, and replace it with our paragraphs
+      $('#change-me').html(paragraphs);
+      // 13. ... that appends a new paragraph to #change-me
+      $('#change-me').append("<p>One more paragraph can't hurt, right?</p>");
+      // 14. ... that targets the all li elements and changes their text to a new sentence
+      $('li').text('A new sentence');
+      // 15. ... that targets the all li elements and appends new text to all of them
+      // Here's something new...we can create a text node, which is just the part of a DOM element that contains text
+      var newTextNode = document.createTextNode('This is new text, woot woot');
+      // Then, we can append this new text node as a child of all <li> elements. This effectively appends
+      // this new text onto the end of whatever was already there.
+      $('li').append(newTextNode);
+      // 16. ... that targets the element with the id of "everything" and appends an ordered list with three list elements inside
+      var orderedList = '<ol> <li>First</li> <li>Second</li> <li>Third</li> </ol>';
+      $('#everything').append(orderedList);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creating HTML Elements with jQuery</title>
+</head>
+<body>
+    <!-- 1. Start with an empty HTML document with jQuery included. -->
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+    <!-- 2. Place a second <script> tag on the page to contain your JavaScript -->
+    <script>
+        // 3. Use jQuery to create a new <div> tag with an id of container and append it to the body
+        $('body').append('<div id="container"></div>');
+        // 4. Use jQuery to create a new <img> tag and place it inside #container
+        $('#container').append('<img id="img1">');
+        // 5. Give the img a src attribute with the URL of a funny picture
+        $('#img1').attr('src', 'http://www.coderanch.com/t/456377/a/401/javascript-java.jpg');
+        // 6. Use jQuery to change the image to be really small
+        $('#img1').attr('width', '100px');
+        $('#img1').attr('height', '100px');
+        // 7. Now make it really big
+        $('#img1').attr('width', '500px');
+        $('#img1').attr('height', '500px');
+        // 8. Now add a few more images and some text captions and use various jQuery effects to make them dance around!
+        $('#container').append('<img id="img2" src="http://www.toonpool.com/user/997/files/computer_self_programming_1205295.jpg">');
+        $('#container').append('<img id="img3" src="http://www.wandwords.com.au/wwords/images/cartoons/14.gif">');
+        // 9. Use Math.random() and position:fixed to randomize the placement of the various HTML elements on your page. Every time you hit refresh, your page should rearrange itself. window.innerHeight and window.innerWidth might come in handy.
+        $('img').css('position', 'fixed'); // Set position:fixed on all images so we can use the top and left CSS properties
+        $('#img1').css('top', Math.random() * window.innerHeight); // Offset the image from the top by a random amount based on the window's height
+        $('#img1').css('left', Math.random() * window.innerWidth); // Offset the image from the left by a random amount based on the window's width
+        $('#img2').css('top', Math.random() * window.innerHeight);
+        $('#img2').css('left', Math.random() * window.innerWidth);
+        $('#img3').css('top', Math.random() * window.innerHeight);
+        $('#img3').css('left', Math.random() * window.innerWidth);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Effects Demo</title>
+</head>
+<body>
+    <h1>Header</h1>
+
+    <p id="secret">Secret paragraph</p>
+
+    <ol>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+    </ol>
+
+    <p class="comments">All comments go here</p>
+
+    <div id="thing">This is a thing</div>
+
+    <div id="message">A boring old message</div>
+
+    <div class="alert">INTRUDER ALERT</div>
+    <div class="alert">INTRUDER ALERT</div>
+    <div class="alert">INTRUDER ALERT</div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First jQuery Page</title>
+</head>
+<body>
+    <img src="notAnActualPath.jpg">
+
+    <h1>This will say hello soon</h1>
+
+    <div id="notification">
+        <p>Stuff is already here</p>
+    </div>
+
+    <div class="container">
+        <p>Stuff is already here</p>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+    <script>
+    $('body').css('background-color', 'red');
+    $('img').attr('src', 'http://i.imgur.com/nWGCwiE.gif');
+    $('h1').text('hello');
+    $('#notification').html('<div class="alert">Hold on! <b>an error</b> has occured!</p>');
+    $('.container').append("<p>What's the difference between <i>.append()</i> and .html()?</p>");
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creating HTML Elements with jQuery</title>
+</head>
+<body>
+<!--    1. Create a web page that asks the user what color theme they'd like to view the web page in.
+        2. Keep asking until they enter a valid input (hint: You can end the while loop manually using the break keyword)
+        3. Use jQuery to change the css of various elements on the page to use at least three shades of that color. e.g. If they choose "green", show a light green background, with green text and dark green borders
+        4. Use jQuery to display a message letting the user know what theme has been applied to the page
+        5. Have at least three color schemes for a visitor to choose from (maybe green, blue and red)
+        6. Place different images on the page depending on the theme
+        7. Extra Credit: Allow the user to enter in a hex value and programmatically create lighter and darker tones of that color. -->
+
+    <div id="target">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+    <script>
+        var color = prompt('Pick a color: green, gray, or blue.');
+        while (color !== 'green' && color !== 'gray' && color !== 'blue') {
+            color = prompt('I said green, gray, or blue! Pick again');
+        }
+        $('#target').css('background-color', 'light' + color);
+        $('#target').css('color', 'dark' + color);
+        $('#target').css('border', '1px solid ' + color);
+        alert(color + ' theme has been applied');
+    </script>
+</body>
+</html>
+
+
+
+
