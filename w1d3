@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+    p {
+      margin: 2px;
+    }
+    .fizz {
+      color: red;
+    }
+    .buzz {
+      color: green;
+    }
+    .fizzbuzz {
+      font-size: 2em;
+      color: gold;
+    }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="target"></div>
+    <script>
+    var fb = 1;
+    var fbstring = "";
+    while (fb <= 100) {
+        if (fb % 3 === 0 && fb % 5 !== 0) {
+            fbstring += '<p class="fizz">fizz</p>';
+        } else if (fb % 3 !== 0 && fb % 5 === 0) {
+            fbstring += '<p class="buzz">buzz</p>';
+        } else if (fb % 3 === 0 && fb % 5 === 0) {
+            fbstring += '<p class="fizzbuzz">fizzbuzz</p>';
+        } else {
+            fbstring += '<p>' + fb + '</p>';
+        }
+        fb++;
+    }    
+    document.querySelector("#target").innerHTML = fbstring;
+    </script>
+</body>
+
+</html>
+
+
+
+
+<!-- Exercise: Fencepost Loop -->
+<!-- Create a variable n and assign it an integer.
+Code a while loop that builds as a single string, the numbers 1 through n, separated by commas
+How can we make sure not to have a comma after the last number? e.g., for n = 9 print "1, 2, 3, 4, 5, 6, 7, 8, 9" -->
+<!-- Use .textContent to place that string into a div#target in the HTML document.
+Now change your code to create a string full of <p> tags, with the number inside, and with <hr> dividers between them (but not after the last one), and use .innerHTML to place them into the page. -->
+<!-- Give odd numbers a class of "odd", even numbers a class of "even." Have a css rule inside your <style></style> tag that styles them differently.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+      .even {
+        color: orange;
+      }
+      .odd {
+        color: purple;
+      }
+      </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="target">
+      
+    </div>
+
+    <script>
+    var n = 22;
+    var nstring = "";
+    var ncount = 1;
+    while (ncount <= n) {
+      if (ncount === n) {
+          if (ncount % 2 === 0) {
+            nstring += '<p class="even">' + ncount + '</p>';
+          } else {
+            nstring += '<p class="odd">' + ncount + '</p>';
+          }
+          
+      } else {
+          if (ncount % 2 === 0) {
+            nstring += '<p class="even">' + ncount + ' ,</p>';
+        } else {
+            nstring += '<p class="odd">' + ncount + ' ,</p>';
+        }
+      }
+      ncount++;
+    }
+    document.querySelector("#target").innerHTML = nstring;
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+<!-- Exercise: Cumulative Sum
+Write a while loop that computes the product of multiplying the first n positive integers: product = 1 * 2 * 3 * ... * n.
+Use .innerHTML to place a formatted piece of text into the HTML document that explains what n was and what the product of the numbers computed to.
+Give the tags different classes and ids that match pre-written CSS with some styling to make it a bit prettier.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="target"></div>
+    <script>
+    var max = Number(prompt("enter a positive integer, but don't go over 170"));
+    var n = 1;
+    var ncount = 1;
+    while (ncount <= max) {
+      n = n * ncount;      
+      ncount++;
+    }
+    document.querySelector("#target").innerHTML = "multiplying the integers from 1 to " + max + " equals " + n;
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+// Exercise: Write a while loop that counts from 0 to 50 by twos
+
+var x = 0;
+while (x <= 50) {
+  console.log(x);
+  x += 2;
+}
+
+
+var n = 0
+
+while (n <= 20) {
+  if (n !== 13 && n % 2 === 0) {
+    console.log("I like the number " + n + ", a nice even number.")
+  } else if (n !== 13 && n % 2 !== 0) {
+    console.log("I like the number " + n + ", odd is okay too!")
+  } else {
+    console.log("la-la-la, nothing to say here")
+  }
+  n++
+}
+// Exercise: Refactor the code above. What improvements can be made?
+console.log("REFACTORED ------");
+var n = 0;
+while (n <= 20) {
+  if (n === 13) {
+    console.log("la-la-la, nothing to say here");
+  } else if (n !== 13 && n % 2 !== 0) {
+    console.log("I like the number " + n + ", odd is okay too!");
+  } else {
+    console.log("I like the number " + n + ", a nice even number.");
+  }
+  n++;
+}
+
+// Exercise: n numbers are coming to a number party. Introduce them each to all the guests as they arrive. You should end up with output looking something like this one for n = 5:
+
+//   "welcome 1"
+//   "welcome 2, meet 1"
+//   "welcome 3, meet 1 and 2"
+//   "welcome 4, meet 1, 2 and 3"
+//   "welcome 5, meet 1, 2, 3 and 4"
+
+var numbersInOrder;
+var warmWelcome;
+var numberHereNow = 1;
+var partyNumbers = 5;
+
+while (numberHereNow <= partyNumbers) {
+    numbersInOrder = 1;
+    warmWelcome = 'welcome ' + numberHereNow;
+
+    if (numberHereNow > 1) {
+        warmWelcome += ', meet ' + numbersInOrder;
+
+        while (++numbersInOrder < numberHereNow) {
+            if (numbersInOrder !== numberHereNow - 1) {
+                warmWelcome += ', ' + numbersInOrder;
+            } else {
+                warmWelcome += ' and ' + numbersInOrder;
+            }
+        }
+    }
+    numberHereNow++;
+    console.log(warmWelcome);
+}
+
+// Exercise: Write code to ask a user to enter an integer greater than 0. Keep asking for a number until it is valid.
+
+var greaterThanZero = 0;
+while (greaterThanZero <= 0) {
+  greaterThanZero = prompt("Enter an integer greater than zero");
+}
+
+
+// Exercise: Write code to play rock, paper, scissors with the user.
+
+// Ask for input until the user enters either "R", "P", or "S"
+// Use Math.random() to choose a play for the computer
+// Tell the user what the outcome was
+// Ask the user if they'd like to play again
+
+var rps;
+while (rps !== "r" || rps!== "p" || rps !== "s"){
+  prompt("rock, paper, or scissors?");
+}
+var rpsThrow = Math.floor(Math.random() * 3);
+
+if (rpsThrow === 0) {
+  rpsThrow = "r";
+} else if (rpsThrow === 1) {
+  rpsThrow = "p";
+} else {
+  rpsThrow = "s";
+}
+
+console.log("You threw " + rps + ". I threw " + rpsThrow + ".");
+if (rpsThrow === rps) {
+  console.log("TIE!");
+} else if ((rps === "r" && rpsThrow === "s") || (rps === "p" && rpsThrow === "r") || (rps = "s" && rpsThrow === "p")){
+  console.log("You win!");
+} else {
+  console.log("You lose!");
+}
+
+
+// Exercise: Guess a Number
+
+// Prompt the user for an input to determine what the highest integer n should be. use parseInt(n) to convert it from a string to a number. As long as the result is NaN, ask them again.
+// Generate a random number between 1 and n.
+// Ask the user to guess the number. Tell them if their guess is too high or too low.
+// Loop until they guess correctly
+
+var max;
+while (max.isNaN()){
+  prompt("Give me a max number");
+}
+var target = Math.floor(Math.random() * max);
+var guess = false;
+var counter = 0
+while (guess !== true){
+  guess = prompt("Guess a number between 1 and " + max);
+  counter++;
+  if (guess === target) {
+    console.log("Bullseye! That took you " + counter + "guesses!");
+    guess = true;
+  } else if (guess > target) {
+    console.log("too high");
+  } else if (guess < target) {
+    console.log("too low");
+  } else {
+    console.log("i said a number");
+  }
+}
+
+// Exercise: Interest Rate Calculator
+
+// Ask the user for three pieces of information: a starting balance, a target balance, and an interest rate (entered as 0.05 for 5%, for example)
+// Use a while loop to calculate the number of investment periods required for the starting balance to have grown larger than the target balance
+// Set the textContent of a div#output to explain the answer to the user: "To grow an initial investment of $1000 to $2000 at 4.5% will require..."
+var startingBalance = prompt("enter a starting balance");
+var targetBalance = prompt("enter a target balance");
+var interest = prompt("enter an interest rate. use decimals – i.e. 0.05 for 5%");
+var counter = 0;
+while (startingBalance < targetBalance) {
+  startingBalance += startingBalance * interest;
+}
+console.log("It would take " + counter + "periods to reach your target balance. Your balance would be " + startingBalance + " after that time.");
