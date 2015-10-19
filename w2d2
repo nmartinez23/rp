@@ -1,0 +1,382 @@
+<html>
+  <head>
+    <title>HTML Document</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <h1>Remote Prep Test Page</h1>
+    <div id = 'money'>show me the money</div><br>
+    <div id = 'opr'>show me the Oprah</div><br>
+    <div id = 'ope'>show me the Opera</div><br>
+    <div id = 'target'>Please click me now!</div><br>
+     <img src = "http://i.ytimg.com/vi/WccGmj0t8Pg/hqdefault.jpg">
+    
+    <script src="https://code.jquery.com/jquery-2.1.1.js">
+    </script>
+    <script>
+  
+       $('#money').on('click', function(){
+  $('#money').append('!!!!');
+});
+       $('#opr').on('click', function() {
+        $('#opr').append('!!!!!');
+       });
+       $('#ope').on('click', function() {
+        $('#ope').append('!!!!!!!!!!!!');
+        $('#ope').hide('visibility: hidden');
+ 
+       });
+
+
+        $('img').hide();
+    $('div').on('click', function(){
+  $('img').show();
+})
+
+// shortcut
+$('#target').click(function(){
+  $('#target').show().css('color', 'red').text('boom goes the dynamite!')
+})
+
+    </script>
+  </body>
+</html>
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>
+        Exercise 1
+      </h1>
+      <button id="target">
+        Press Me
+      </button>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.js">
+    </script>
+    <script>
+      var fn = function () {
+        console.log('heeey');
+      };
+      document.querySelector('#target').addEventListener('click', fn);
+      document.querySelector('#target').addEventListener('click', function(){
+        console.log('same deal');
+      });
+      
+      var beeper = function() {
+        var newBeep = document.createElement('p');
+        newBeep.innerText = 'beep';
+        $('.container').append(newBeep);
+        document.body.style.background = '#' + Math.random().toString(16).slice(2, 8);
+      };
+      
+      document.querySelector('#target').addEventListener('click', beeper);
+    </script>
+  </body>
+</html>
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>
+        Exercise 2
+      </h1>
+      <button id="target">
+        Press Me
+      </button>
+      <div id="money">show me the money
+        <br>
+        <image class="money" src="http://thefrt.com/wp-content/uploads/2013/02/money43.jpg" style="display: none">
+      </div>
+      <div id="oprah">show me the oprah
+        <br>
+        <image class="oprah" src="http://i.imgur.com/R1raY.gif" style="display: none">
+      </div>
+      <div id="opera">show me the opera
+        <br>
+        <image class="opera" src="http://static.guim.co.uk/sys-images/Guardian/About/General/2012/10/4/1349341443342/Royal-Opera-House-008.jpg" style="display: none">
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.js">
+    </script>
+    <script>
+      $('div').on('click', function(){
+        console.log('A div has been clicked!');
+      });
+      $('#target').click(function(){
+        $('#target').show().css('color', 'red').text('boom goes the dynamite!');
+      });
+      $('#money').click(function() {
+        $('.oprah').hide();
+        $('.opera').hide();
+        $('.money').toggle();
+      });
+      $('#oprah').click(function() {
+        $('.money').hide();
+        $('.opera').hide();
+        $('.oprah').toggle();
+      });
+      $('#opera').click(function() {
+        $('.money').hide();
+        $('.oprah').hide();
+        $('.opera').toggle();
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #target {
+        height: 50;
+        width: 200;
+      }
+          
+      .highlighted {
+        color: red;
+      }
+       
+      .shown {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>
+        Exercise 3
+      </h1>
+      <button id="target">
+        Press Me
+      </button>
+    </div>
+    <div id="magic">
+      <br>
+      <image class="magic" src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Margaret_Hamilton.gif">
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.js">
+    </script>
+    <script>
+      $('#target').on('mouseover', function(){
+        $('#target').addClass('highlighted');
+      });
+      $('#target').on('mouseleave', function(){
+        $('#target').removeClass('highlighted');
+      });
+      $('#magic').on('mouseover', function() {
+        $('.magic').addClass('shown');
+      });
+      $('#magic').on('mouseleave', function() {
+        $('.magic').removeClass('shown');
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .cat {
+        position: fixed;
+      }
+      .nocursor {
+        cursor: none;
+      }
+    </style>
+  </head>
+  <body class="nocursor">
+    <div>
+      <h1>
+        Exercise 4
+      </h1>
+      <image class="cat" src="http://cur.cursors-4u.net/nature/images3/nat264.gif">
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.js">
+    </script>
+    <script>
+      var mouse_tracker = function(event){
+        console.log(event.pageX, event.pageY, !!event.which);
+      };
+      $('body').on('mousemove', mouse_tracker);
+      $('body').on('mousemove', function(){
+        $('.cat').css({'top': event.pageY - 20, 'left': event.pageX - 20});
+      });
+      
+    </script>
+  </body>
+</html>
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .color {
+        background: #e5dcc5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exercise 5</h1>
+    <div id="output"> 
+    </div>
+    <br>
+    <div id="one">
+      Cat ipsum dolor sit amet, the dog smells bad meowing non stop for food. Have secret plans. Stare at ceiling sleep nap spit up on light gray carpet instead of adjacent linoleum. Scream at teh bath present belly, scratch hand when stroked drink water out of the faucet sun bathe. Destroy the blinds stare at the wall, play with food and get confused by dust, hunt anything that moves stand in front of the computer screen. Nap all day scream at teh bath, for sun bathe, yet purr for no reason kick up litter. Jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed eat a plant, kill a hand for sleep on dog bed, force dog to sleep on floor, make muffins, yet run in circles. Stare at ceiling if it fits, i sits yet shove bum in owner's face like camera lens. Hide at bottom of staircase to trip human loves cheeseburgers yet attack feet. Bathe private parts with tongue then lick owner's face chase dog then run away for bathe private parts with tongue then lick owner's face. Meow. Lick butt mark territory stretch present belly, scratch hand when stroked has closed eyes but still sees you pelt around the house and up and down stairs chasing phantoms for see owner, run in terror. Meowwww where is my slave? i'm getting hungry. Poop on grasses burrow under covers, jump around on couch, meow constantly until given food, for present belly, scratch hand when stroked poop on grasses and chase imaginary bugs. Then cats take over the world need to chase tail intently sniff hand behind the couch need to chase tail stand in front of the computer screen chase ball of string. Love to play with owner's hair tie ears back wide eyed i like big cats and i can not lie so throwup on your pillow has closed eyes but still sees you. Sun bathe knock over christmas tree, yet missing until dinner time paw at your fat belly. Destroy the blinds. Favor packaging over toy rub face on owner if it fits, i sits. Leave fur on owners clothes mark territory. Run in circles lick butt, for poop in litter box, scratch the walls sit in box. Chase laser use lap as chair sweet beast sleep in the bathroom sink or lounge in doorway for eat grass, throw it back up, for vommit food and eat it again. Eat and than sleep on your face knock over christmas tree inspect anything brought into the house, so sit by the fire leave hair everywhere. Intrigued by the shower hide head under blanket so no one can see meowwww. Nap all day climb leg, spot something, big eyes, big eyes, crouch, shake butt, prepare to pounce, or spread kitty litter all over house. Cat slap dog in face.
+    </div>
+    
+    <br>
+
+    <div id="two">
+      Intently stare at the same spot mark territory, for hopped up on catnip lounge in doorway, but purr while eating chew iPad power cord. Peer out window, chatter at birds, lure them to mouth meow meow all of a sudden cat goes crazy, yet poop on grasses and hide from vacuum cleaner or hide at bottom of staircase to trip human. Where is my slave? i'm getting hungry rub face on owner. Hide at bottom of staircase to trip human. Play riveting piece on synthesizer keyboard vommit food and eat it again yet shove bum in owner's face like camera lens, drink water out of the faucet so put toy mouse in food bowl run out of litter box at full speed intrigued by the shower, or climb leg. Under the bed. Why must they do that use lap as chair, and stick butt in face, and sleep in the bathroom sink meowwww. Hunt by meowing loudly at 5am next to human slave food dispenser scratch the furniture why must they do that play riveting piece on synthesizer keyboard yet spit up on light gray carpet instead of adjacent linoleum or spread kitty litter all over house or rub face on owner. Meowwww. Scamper scratch the furniture leave fur on owners clothes sleep on dog bed, force dog to sleep on floor sun bathe. Chew on cable hopped up on catnip present belly, scratch hand when stroked yet sleep on dog bed, force dog to sleep on floor for find empty spot in cupboard and sleep all day. 
+    </div>
+
+    <br>
+
+    <div id="three">
+      Destroy couch cough furball or damn that dog yet see owner, run in terror burrow under covers, yet make meme, make cute face. Purr while eating. Kick up litter attack feet, yet hopped up on catnip. Jump around on couch, meow constantly until given food, . Curl into a furry donut chew foot hunt anything that moves chase dog then run away yet under the bed, so claw drapes lounge in doorway. I like big cats and i can not lie leave hair everywhere, need to chase tail. Claws in your leg. Stretch vommit food and eat it again. Meowwww rub face on everything. All of a sudden cat goes crazy climb leg, and climb leg sleep on dog bed, force dog to sleep on floor yet lounge in doorway and purr for no reason.
+    </div>
+
+    <br>
+
+    <div id="four">
+      Hide head under blanket so no one can see jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed. Always hungry hide from vacuum cleaner yet throwup on your pillow if it fits, i sits, if it fits, i sits but scamper. Run in circles hide when guests come over. Attack feet. Intently sniff hand jump around on couch, meow constantly until given food, give attitude, so hide from vacuum cleaner so scamper or chew on cable purr for no reason. Cat slap dog in face pooping rainbow while flying in a toasted bread costume in space hide from vacuum cleaner for knock over christmas tree. Intently stare at the same spot make meme, make cute face but spit up on light gray carpet instead of adjacent linoleum. Sit by the fire find empty spot in cupboard and sleep all day sweet beast swat at dog. Hide when guests come over chew foot. Eat a plant, kill a hand poop on grasses throwup on your pillow, or leave dead animals as gifts, so hiss at vacuum cleaner.
+    </div>
+
+    <br>
+
+    <div id="five">
+      Chase ball of string leave dead animals as gifts sweet beast scratch leg; meow for can opener to feed me leave fur on owners clothes. Then cats take over the world. Chase dog then run away drink water out of the faucet. Hide head under blanket so no one can see scratch the furniture. Eat and than sleep on your face i am the best throwup on your pillow, but all of a sudden cat goes crazy, but intently stare at the same spot, and leave dead animals as gifts, so hide at bottom of staircase to trip human. Favor packaging over toy burrow under covers. Stand in front of the computer screen intrigued by the shower, but roll on the floor purring your whiskers off. Leave hair everywhere damn that dog , yet who's the baby, but vommit food and eat it again but rub face on owner but chase red laser dot and lick butt. Meowing non stop for food jump off balcony, onto stranger's head meowwww roll on the floor purring your whiskers off chase imaginary bugs. Pelt around the house and up and down stairs chasing phantoms leave dead animals as gifts put toy mouse in food bowl run out of litter box at full speed . Destroy the blinds kick up litter. Cough furball. I like big cats and i can not lie.
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>  
+    <script>
+      $('div').click(function(e) {
+        $('#output').text(this.id);
+        $('div').not(this).css({background: '#FFFFFF'});
+        $(this).css({background: '#' + Math.random().toString(16).slice(2, 8)});
+      });
+      
+    </script>
+  </body>
+</html>
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>
+      Exercise 6
+    </h1>
+    <input id="color">
+    <button id="go">Click Me</button>
+    <div id="output">
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.js">
+    </script>
+    <script>
+      $('button#go').on('click', function(){
+        $('#output').text( $('input#color').val());
+        $('body').css({background: $('input#color').val()});
+      });
+  
+    </script>
+  </body>
+</html>
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>
+      Exercise 7
+    </h1>
+    <input id="type">
+    <label></label>
+    <div id="output"></div>
+    <script src="https://code.jquery.com/jquery-2.1.1.js">
+    </script>
+    <script>
+      var nsa_surveillance = '';
+      $('input#type').on('keypress', function(e) {
+        nsa_surveillance += String.fromCharCode(e.keyCode);
+        $('label').text(e.keyCode);
+        $('#output').text(nsa_surveillance);
+      });
+      $('body').on('keypress', function(e) {
+        nsa_surveillance += String.fromCharCode(e.keyCode);
+        $('#output').text(nsa_surveillance);
+      });
+        
+    </script>
+  </body>
+</html>
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>
+      Exercise 8
+    </h1>
+    <form>
+      <input id="target" type="text" value="Field 1">
+    </form>
+    <div id="other1">
+      Trigger the handler
+    </div>
+    <div id="other2">
+      Trigger the other handler
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.js">
+    </script>
+    <script>
+      $("#other1").click(function() {
+        $("#target").focus();
+      });
+      $("#other2").click(function() {
+        $("#target").blur();
+      });
+      
+    </script>
+  </body>
+</html>
+
+
+
