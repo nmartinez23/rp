@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Store</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        The header
+
+        <nav>
+            <button id="book_btn">Books</button>
+            <button id="album_btn">Albums</button>
+            <button id="show_all_btn">Show All</button>
+            <select id="category_dropdown">
+                <option value="book">Books</option>
+                <option value="album">Albums</option>
+            </select>
+            <input type="search" placeholder="Search..." value="">
+        </nav>
+    </header>
+
+    <div id="content">
+    </div>
+
+    <footer>
+        The footer
+    </footer>
+
+    <script>
+        // Item data
+        // ===================================
+        var book1 = {
+            id: 'book1',
+            class: 'book',
+            name: 'Harry Potter',
+            category: 'Fiction',
+            picture_url: 'http://ecx.images-amazon.com/images/I/51MU5VilKpL.jpg',
+            price: 9.99,
+            selling_points: ['Magical!','Currencium Levitatus!']
+        };
+        var book2 = {
+            id: 'book2',
+            class: 'book',
+            name: 'Eloquent JavaScript',
+            category: 'Computer Programming',
+            picture_url: 'http://eloquentjavascript.net/img/cover.png',
+            price: 0.01,
+            selling_points: ['A modern classic.','Wow, I know how to write higher-order functions in JavaScript now!'] 
+        };
+        var album1 = {
+            id: 'album1',
+            class: 'album',
+            name: 'The Strokes',
+            category: '',
+            picture_url: '',
+            price: 0.00,
+            selling_points: ['','']
+        };
+        var album2 = {
+            id: 'album2',
+            class: 'album',
+            name: 'Black Keys',
+            category: '',
+            picture_url: '',
+            price: 0.00,
+            selling_points: ['','']
+        };
+        // ===================================
+        // add_to_page() function definition
+        // ===================================
+        function add_to_page (item) {
+            var listingHtml = '<div id="' + item.id + '" class="' + item.class + '"></div>';
+            var newListing = $(listingHtml).appendTo('#content');
+            for (var key in item) {
+                var dataHtml = '<div class="' + key + '"></div>';
+                if (key === 'id' || key === 'class') {
+                    // do nothing
+                } else if (key === 'picture_url') {
+                    var newPictureDiv = $(dataHtml).appendTo(newListing);
+                    newPictureDiv.append('<img src="' + item[key] + '">');
+                } else if (key === 'selling_points') {
+                    var newSellingPointsDiv = $(dataHtml).appendTo(newListing);
+                    var sellingPointsList = $('<ul></ul>').appendTo(newSellingPointsDiv);
+                    for (var i = 0; i < item.selling_points.length; i++) {
+                        sellingPointsList.append('<li>' + item.selling_points[i] + '</li>');
+                    }
+                } else {
+                    $(dataHtml).appendTo(newListing).text(item[key]);
+                }
+            } // end of for...in loop
+        } // end of function
+        // ===================================
+        // Wrap item data in a products object, then add each category's items to the page
+        // ===================================
+        var products = {
+            books: [book1, book2],
+            albums: [album1, album2]
+        };
+        for (var category in products) {
+            var itemArray = products[category];
+            for (var i = 0; i < itemArray.length; i++) {
+                add_to_page(itemArray[i]);
+            }
+        }
+        // ===================================
+        // Events and their event handler functions
+        // ===================================
+        $('#book_btn').click(function(e) {
+            $('#content > div').not('#content .book').hide();
+            $('#content .book').show();
+        });
+        $('#album_btn').click(function(e) {
+            $('#content > div').not('#content .album').hide();
+            $('#content .album').show();
+        });
+        $('#show_all_btn').click(function(e) {
+            $('#content > div').show();
+        });
+        $('select').change(function(e) {
+            var selected = $(this).val();
+            $('#content > div').not('#content .' + selected).hide();
+            $('#content .' + selected).show();
+        });
+        $('input[type=search]').keyup(function(e) {
+            var searchValue = $(this).val();
+            $('#content > div').hide();
+            for (var category in products) {
+                var itemArray = products[category];
+                for (var i = 0; i < itemArray.length; i++) {
+                    var name = itemArray[i].name;
+                    if (!!name.match(searchValue)) {
+                        $('#content').find('div[id=' + itemArray[i].id + ']').show();
+                    }
+                }
+            }
+        });
+        // ===================================
+    </script>
+</body>
+</html>
