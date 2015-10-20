@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Store</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+      The header
+      <nav>
+        <button id="book_btn">Books</button>
+        <button id="album_btn">Albums</button>
+        <button id="show_all_btn">Show All</button>
+        <select id="category_dropdown">
+            <option value="book">Books</option>
+            <option value="album">Albums</option>
+        </select>
+        <input type="search" placeholder="Search..." value="">
+      </nav>
+    </header>
+    <div id="content">
+        <!-- Original page structure that we are trying to 
+        replicate using dynamically generated HTML with jQuery -->
+        <div id="book1" class="book">
+            <div class="name">Harry Potter</div>
+            <div class="category">Fiction</div>
+            <div class="price">9.99</div>
+            <div class="picture">
+                <img src="http://ecx.images-amazon.com/images/I/51MU5VilKpL.jpg">
+            </div>
+            <div class="selling_points">
+                <ul>
+                    <li>Magical!</li>
+                    <li>Currencium Levitatus!</li>
+                </ul>
+            </div>
+        </div>
+        <div id="book2" class="book">
+            <div class="name">Eloquent JavaScript</div>
+            <div class="category">Computer Programming</div>
+            <div class="price">.01</div>
+            <div class="picture">
+                <img src="http://eloquentjavascript.net/img/cover.png">
+            </div>
+            <div class="selling_points">
+                <ul>
+                    <li>A modern classic</li>
+                    <li>Wow, I know how to write higher-order functions in JavaScript now!</li>
+                </ul>
+            </div>
+        </div>
+        <div id="album1" class="album">
+            <div class="name">In My Time - Yanni</div>
+            <div class="category">torture music</div>
+            <div class="price">5.99</div>
+            <div class="picture">
+                <img src="http://ecx.images-amazon.com/images/I/61inUAoW5DL._SY355_.jpg">
+            </div>
+            <div class="selling_points">
+                <ul>
+                    <li>Yanni</li>
+                    <li>Use this album as punishment for your child</li>
+                </ul>
+            </div>
+        </div>
+        <div id="album2" class="album">
+            <div class="name">The Nightmare Before Christmas</div>
+            <div class="category">Halloween</div>
+            <div class="price">6.98</div>
+            <div class="picture">
+                <img src="http://ecx.images-amazon.com/images/I/4159QF6258L.jpg">
+            </div>
+            <div class="selling_points">
+                <ul>
+                    <li>Halloween</li>
+                    <li>Animation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        The footer
+    </footer>
+    <script>
+    </script>
+</body>
+</html>
