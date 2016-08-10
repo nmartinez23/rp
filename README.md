@@ -1,1 +1,1 @@
-# rp
+# Javascript exercises
