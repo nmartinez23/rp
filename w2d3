@@ -1,5 +1,3 @@
-
-
 <html>
   <head>
     <title>HTML Document</title>
@@ -64,9 +62,12 @@ bucket_list.length;
 //Exercise:
 
 /*Use a while loop and jQuery to append each item in your recipe and your bucket list onto a web page.
-Refactor your code such that the while loop lives inside a function called append_strings that takes an array as an input (argument)
+Refactor your code such that the while loop lives inside a function called append_strings that takes 
+an array as an input (argument)
 Invoke append_strings twice, passing in recipe the first time and bucket_list the second time
-Refactor append_strings such that it takes two arguments: an array of strings, and a string representing the CSS selector of the element into which the strings should be appended. (i.e. bucket_list may be appended into a #bucket_output div) 
+Refactor append_strings such that it takes two arguments: an array of strings, and a string representing 
+the CSS selector of the element into which the strings should be appended. (i.e. bucket_list may be 
+appended into a #bucket_output div) 
 
 */
 
@@ -104,7 +105,8 @@ unscrambled_array.join(' ')
 // Instantiate a new array and save it to a variable recipe
 // Use bracket notation to add the steps to create your favorite meal.
 // Access the first step of your recipe using bracket notation.
-// Create variable called last_step and assign to it a number which represents the index of the last item of your array
+// Create variable called last_step and assign to it a number which represents the index 
+// of the last item of your array
 // Access the last step of your recipe using the last_step variable
 var recipe = [];
 recipe[0] = "Step 1. Open Eat24 on your phone.";
@@ -278,7 +280,8 @@ var shuffler = function(array){
 
 // More Exercises:
 
-// Write a function that takes an array of values and returns an boolean representing if the word "hello" exists in the array.
+// Write a function that takes an array of values and returns an boolean representing if 
+// the word "hello" exists in the array.
 var helloChecker = function(array){
   var helloExists = false;
   array.forEach(function(val){
@@ -292,7 +295,8 @@ var helloChecker = function(array){
 
 
 
-// Write a function that takes an array of values and a target value and returns how many times that target value exists in the array.
+// Write a function that takes an array of values and a target value and returns how many times 
+// that target value exists in the array.
 var targetCounter = function(array, target) {
   var counter = 0;
   array.forEach(function(val){
@@ -306,7 +310,8 @@ var targetCounter = function(array, target) {
 
 
 
-// Write a function that takes an array and returns a new array containing only the values at odd indexes in that array.
+// Write a function that takes an array and returns a new array containing only the values 
+// at odd indexes in that array.
 var oddMaker = function(array){
   var oddArray = [];
   array.forEach(function(val, index){
@@ -320,7 +325,8 @@ var oddMaker = function(array){
 
 
 
-// Write a function called sum_array that takes an array of numbers and returns the sum of all of those numbers added together.
+// Write a function called sum_array that takes an array of numbers and returns the sum of 
+// all of those numbers added together.
 var sum_array = function(array) {
   var total = 0;
   array.forEach(function(val){
@@ -332,7 +338,9 @@ var sum_array = function(array) {
 
 
 
-// Write a function called array_math that takes an array of numbers and a string with a mathmatical operator and applies that operator to all the numbers together. array_math([4,2,3], "*") should return 24
+// Write a function called array_math that takes an array of numbers and a string with a 
+// mathmatical operator and applies that operator to all the numbers together. 
+// array_math([4,2,3], "*") should return 24
 var array_math = function(array, string){
   return eval(array.join(string));
 };
@@ -340,7 +348,8 @@ var array_math = function(array, string){
 
 
 
-// Write a zipper function that combines two arrays in alternating order, zipper([1,2,3],['a','b','c']) should return [1, 'a', 2, 'b', 3, 'c']. Make sure to handle cases where one array is longer than the other.
+// Write a zipper function that combines two arrays in alternating order, zipper([1,2,3],['a','b','c']) 
+// should return [1, 'a', 2, 'b', 3, 'c']. Make sure to handle cases where one array is longer than the other.
 var zipper = function(first, second) {
   var zippedArray = [];
   var length = 0;    
@@ -359,7 +368,8 @@ var zipper = function(first, second) {
 
 
 
-// Write a function that merges two sorted lists into a new list. merge_sorted([1, 2, 5, 9], [3, 7, 19]) should return [1, 2, 3, 5, 7, 9, 19]
+// Write a function that merges two sorted lists into a new list. merge_sorted([1, 2, 5, 9], [3, 7, 19]) 
+// should return [1, 2, 3, 5, 7, 9, 19]
 var merge_sorted = function(first, second){
   var mergedArr = [];
   while (first.length > 0 || second.length > 0){
@@ -398,7 +408,8 @@ function fibonacci100() {
 Have a grid of words in span.word tags for the user to select from.
 Allow users to click on the spans to add that word to a sentence array.
 When the user clicks on a "make sentence" button use words.join(' ') to create a string and show it.
-Create a "show magic word" button. If the user has used a particular magic word in their sentence highlight it for them. Otherwise, tell them that they have not used the magic word.
+Create a "show magic word" button. If the user has used a particular magic word in their sentence 
+highlight it for them. Otherwise, tell them that they have not used the magic word.
 Have an array of magic words, color the magic words differently.
 Allow users to create multiple sentences. Store all of the sentences in an array.
 Have "magic word" work on all sentences at once.
